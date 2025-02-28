@@ -4,7 +4,7 @@
 
 Optional but recommended to start a virtual environment:
 ```bash
-python3 -m venv venv
+python -m venv venv
 source venv/bin/activate
 ```
 
