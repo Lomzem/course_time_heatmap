@@ -13,3 +13,9 @@ Then, install the dependencies:
 pip install -r requirements.txt
 ```
 
+## Running
+```bash
+python main.py <path_to_json_file>
+```
+
+Then, it will create the CSV files.
