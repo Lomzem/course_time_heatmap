@@ -24,7 +24,7 @@ class Model(BaseModel):
     # crse_id: str
     # crse_offer_nbr: int
     # strm: str
-    # session_code: str
+    session_code: str
     # session_descr: str
     # class_section: str
     # location: str
@@ -39,9 +39,9 @@ class Model(BaseModel):
     # acad_career_descr: str
     # component: str
     subject: str
-    subject_descr: str
+    # subject_descr: str
     catalog_nbr: str
-    class_type: str
+    # class_type: str # A-G requirements
     # schedule_print: str
     # acad_group: str
     instruction_mode: str
@@ -50,9 +50,9 @@ class Model(BaseModel):
     # grading_basis: str
     # wait_tot: int
     # wait_cap: int
-    # class_capacity: int
-    # enrollment_total: int
-    # enrollment_available: int
+    class_capacity: int
+    enrollment_total: int
+    enrollment_available: int
     # descr: str
     # rqmnt_designtn: str
     # units: str
