@@ -1,12 +1,17 @@
 import json
 from models import Model
+import logging
 import pandas as pd
-import numpy as np
 import datetime
+import sys
 
 
 def main():
-    with open("data.json") as f:
+    if len(sys.argv) == 1:
+        print(f"Usage: {sys.argv[0]} <path_to_json_file>")
+        return
+
+    with open(sys.argv[1]) as f:
         data = json.load(f)
 
     courses = []
@@ -47,11 +52,21 @@ def main():
                     fr_student_counts[minute] += course.enrollment_total
 
     mo_student_counts.to_csv("output_csvs/mo_count.csv")
+    logging.info("Wrote monday to output_csvs/mo_count.csv")
+
     tu_student_counts.to_csv("output_csvs/tu_count.csv")
+    logging.info("Wrote tuesday to output_csvs/tu_count.csv")
+
     we_student_counts.to_csv("output_csvs/we_count.csv")
+    logging.info("Wrote wednesday to output_csvs/we_count.csv")
+
     th_student_counts.to_csv("output_csvs/th_count.csv")
+    logging.info("Wrote thursday to output_csvs/th_count.csv")
+
     fr_student_counts.to_csv("output_csvs/fr_count.csv")
+    logging.info("Wrote friday to output_csvs/fr_count.csv")
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
     main()
