@@ -1,70 +1,70 @@
-crse_id,class_section,enrollment_total,instruction_mode,strm,subject,subject_descr,start_time,end_time,mo,tu,we,th,fr
-000014,01,51,P,2252,ABUS,Agricultural Business,11:00:00,12:15:00,False,True,False,True,False
-000014,02,51,P,2252,ABUS,Agricultural Business,09:30:00,10:45:00,False,True,False,True,False
-000025,01,24,P,2252,ABUS,Agricultural Business,11:00:00,12:15:00,False,True,False,True,False
-000025,02,18,P,2252,ABUS,Agricultural Business,14:30:00,15:45:00,True,False,True,False,False
-000025,03,23,P,2252,ABUS,Agricultural Business,11:00:00,12:15:00,True,False,True,False,False
-022581,01,22,P,2252,ABUS,Agricultural Business,14:00:00,16:50:00,False,False,False,True,False
-000020,01,31,P,2252,ABUS,Agricultural Business,10:00:00,10:50:00,True,False,True,False,False
-000020,02,31,P,2252,ABUS,Agricultural Business,10:00:00,10:50:00,False,False,False,False,True
-015011,01,22,P,2252,ABUS,Agricultural Business,13:00:00,13:50:00,False,True,False,True,False
-015011,02,22,P,2252,ABUS,Agricultural Business,14:00:00,15:50:00,False,False,False,True,False
-015866,01,6,P,2252,ABUS,Agricultural Business,12:00:00,12:50:00,False,False,True,False,False
-000024,01,27,P,2252,ABUS,Agricultural Business,11:00:00,12:15:00,False,True,False,True,False
-000026,01,27,P,2252,ABUS,Agricultural Business,13:00:00,14:15:00,True,False,True,False,False
-000027,01,19,P,2252,ABUS,Agricultural Business,09:00:00,09:50:00,True,False,True,False,True
-015981,01,28,P,2252,ABUS,Agricultural Business,11:00:00,12:15:00,False,True,False,True,False
-020799,01,33,P,2252,ABUS,Agricultural Business,09:30:00,10:45:00,False,True,False,True,False
-015535,02,42,P,2252,ABUS,Agricultural Business,11:00:00,11:50:00,True,False,True,False,True
-000040,01,12,P,2252,ABUS,Agricultural Business,08:00:00,09:15:00,False,True,False,True,False
-000040,02,24,P,2252,ABUS,Agricultural Business,09:30:00,10:45:00,False,True,False,True,False
-000041,01,25,J,2252,ABUS,Agricultural Business,10:00:00,10:50:00,True,False,True,False,False
-000041,02,25,P,2252,ABUS,Agricultural Business,15:00:00,16:50:00,True,False,False,False,False
-000030,01,41,P,2252,ABUS,Agricultural Business,12:30:00,13:20:00,False,True,False,True,False
-000030,02,24,P,2252,ABUS,Agricultural Business,14:00:00,15:50:00,False,True,False,False,False
-000030,03,17,P,2252,ABUS,Agricultural Business,16:00:00,17:50:00,False,True,False,False,False
-000077,01,37,P,2252,ACCT,Accounting,10:00:00,11:15:00,True,False,True,False,False
-000077,02,37,P,2252,ACCT,Accounting,11:30:00,12:45:00,True,False,True,False,False
-000077,03,36,P,2252,ACCT,Accounting,13:30:00,14:45:00,True,False,True,False,False
-000077,04,43,P,2252,ACCT,Accounting,09:00:00,10:15:00,False,True,False,True,False
-000078,01,46,P,2252,ACCT,Accounting,11:00:00,12:15:00,False,True,False,True,False
-000078,02,45,P,2252,ACCT,Accounting,14:00:00,15:15:00,False,True,False,True,False
-000078,03,21,P,2252,ACCT,Accounting,09:30:00,10:45:00,True,False,True,False,False
-000078,04,40,P,2252,ACCT,Accounting,15:30:00,16:45:00,False,True,False,True,False
-000078,06,40,P,2252,ACCT,Accounting,11:00:00,12:15:00,True,False,True,False,False
-000082,01,30,P,2252,ACCT,Accounting,11:00:00,12:15:00,False,True,False,True,False
-000083,01,33,P,2252,ACCT,Accounting,12:30:00,13:45:00,False,True,False,True,False
-021611,01,27,H,2252,ACCT,Accounting,14:00:00,15:15:00,False,False,False,True,False
-000096,01,22,H,2252,ACCT,Accounting,15:30:00,16:45:00,False,False,False,True,False
-000089,01,34,P,2252,ACCT,Accounting,09:30:00,10:45:00,False,True,False,True,False
-000102,02,39,P,2252,ACCT,Accounting,11:00:00,12:15:00,False,True,False,True,False
-000136,01,46,P,2252,AFAM,African American Studies,14:30:00,15:45:00,True,False,True,False,False
-000136,02,40,P,2252,AFAM,African American Studies,09:30:00,10:45:00,False,True,False,True,False
-000136,60,22,P,2252,AFAM,African American Studies,16:00:00,17:15:00,True,False,True,False,False
-021990,01,40,X,2252,AFAM,African American Studies,14:00:00,15:15:00,False,True,False,True,False
-021990,01,40,X,2252,AFAM,African American Studies,14:00:00,15:15:00,False,True,False,True,False
-000204,01,14,P,2252,AGED,Agricultural Education,17:00:00,17:50:00,False,False,False,True,False
-000220,01,18,P,2252,AGED,Agricultural Education,11:00:00,13:50:00,False,False,False,True,False
-000220,02,17,P,2252,AGED,Agricultural Education,14:00:00,16:50:00,False,False,False,True,False
-000208,01,32,P,2252,AGED,Agricultural Education,14:00:00,16:50:00,False,True,False,False,False
-000222,01,25,J,2252,AGED,Agricultural Education,19:00:00,21:50:00,True,False,False,False,False
-000166,01,52,P,2252,AGET,Agricultural Engr Tech,08:00:00,08:50:00,True,False,True,False,False
-000166,02,19,P,2252,AGET,Agricultural Engr Tech,14:00:00,16:50:00,True,False,False,False,False
-000166,03,14,P,2252,AGET,Agricultural Engr Tech,14:00:00,16:50:00,False,True,False,False,False
-000166,04,19,P,2252,AGET,Agricultural Engr Tech,14:00:00,16:50:00,False,False,True,False,False
-022526,01,17,P,2252,AGET,Agricultural Engr Tech,17:00:00,17:50:00,False,True,False,False,False
-022526,02,17,P,2252,AGET,Agricultural Engr Tech,18:00:00,20:50:00,False,True,False,False,False
-000198,01,26,P,2252,AGRI,Agriculture,14:00:00,14:50:00,False,True,False,False,False
-000190,01,44,P,2252,AGRI,Agriculture,17:00:00,19:50:00,False,False,True,False,False
-000190,01,44,P,2252,AGRI,Agriculture,17:00:00,19:50:00,False,False,True,False,False
-022636,01,23,P,2252,AGRI,Agriculture,09:00:00,10:50:00,False,False,False,False,True
-000211,01,55,P,2252,AGRI,Agriculture,09:30:00,10:45:00,False,True,False,True,False
-000211,02,40,P,2252,AGRI,Agriculture,08:00:00,09:15:00,False,True,False,True,False
-022635,01,16,P,2252,AGRI,Agriculture,12:30:00,13:45:00,False,True,False,True,False
-000206,01,42,P,2252,AGRI,Agriculture,08:00:00,08:50:00,False,True,False,True,False
-000206,02,24,P,2252,AGRI,Agriculture,11:00:00,13:50:00,True,False,False,False,False
-000206,03,18,P,2252,AGRI,Agriculture,14:00:00,16:50:00,True,False,False,False,False
-022587,01,21,P,2252,AGRI,Agriculture,08:00:00,09:15:00,False,True,False,True,False
-000229,03,13,P,2252,AGRI,Agriculture,09:00:00,10:15:00,True,False,True,False,False
-000229,04,30,P,2252,AGRI,Agriculture,11:00:00,12:15:00,True,False,True,False,False
-000223,01,75,P,2252,AGRI,Agriculture,12:30:00,13:45:00,False,True,False,True,False
+crse_id,class_section,enrollment_total,instruction_mode,strm,subject,subject_descr,days,start_time,end_time,mo,tu,we,th,fr
+000014,01,51,P,2252,ABUS,Agricultural Business,TuTh,11:00:00,12:15:00,False,True,False,True,False
+000014,02,51,P,2252,ABUS,Agricultural Business,TuTh,09:30:00,10:45:00,False,True,False,True,False
+000025,01,24,P,2252,ABUS,Agricultural Business,TuTh,11:00:00,12:15:00,False,True,False,True,False
+000025,02,18,P,2252,ABUS,Agricultural Business,MoWe,14:30:00,15:45:00,True,False,True,False,False
+000025,03,23,P,2252,ABUS,Agricultural Business,MoWe,11:00:00,12:15:00,True,False,True,False,False
+022581,01,22,P,2252,ABUS,Agricultural Business,Th,14:00:00,16:50:00,False,False,False,True,False
+000020,01,31,P,2252,ABUS,Agricultural Business,MoWe,10:00:00,10:50:00,True,False,True,False,False
+000020,02,31,P,2252,ABUS,Agricultural Business,Fr,10:00:00,10:50:00,False,False,False,False,True
+015011,01,22,P,2252,ABUS,Agricultural Business,TuTh,13:00:00,13:50:00,False,True,False,True,False
+015011,02,22,P,2252,ABUS,Agricultural Business,Th,14:00:00,15:50:00,False,False,False,True,False
+015866,01,6,P,2252,ABUS,Agricultural Business,We,12:00:00,12:50:00,False,False,True,False,False
+000024,01,27,P,2252,ABUS,Agricultural Business,TuTh,11:00:00,12:15:00,False,True,False,True,False
+000026,01,27,P,2252,ABUS,Agricultural Business,MoWe,13:00:00,14:15:00,True,False,True,False,False
+000027,01,19,P,2252,ABUS,Agricultural Business,MoWeFr,09:00:00,09:50:00,True,False,True,False,True
+015981,01,28,P,2252,ABUS,Agricultural Business,TuTh,11:00:00,12:15:00,False,True,False,True,False
+020799,01,33,P,2252,ABUS,Agricultural Business,TuTh,09:30:00,10:45:00,False,True,False,True,False
+015535,02,42,P,2252,ABUS,Agricultural Business,MoWeFr,11:00:00,11:50:00,True,False,True,False,True
+000040,01,12,P,2252,ABUS,Agricultural Business,TuTh,08:00:00,09:15:00,False,True,False,True,False
+000040,02,24,P,2252,ABUS,Agricultural Business,TuTh,09:30:00,10:45:00,False,True,False,True,False
+000041,01,25,J,2252,ABUS,Agricultural Business,MoWe,10:00:00,10:50:00,True,False,True,False,False
+000041,02,25,P,2252,ABUS,Agricultural Business,Mo,15:00:00,16:50:00,True,False,False,False,False
+000030,01,41,P,2252,ABUS,Agricultural Business,TuTh,12:30:00,13:20:00,False,True,False,True,False
+000030,02,24,P,2252,ABUS,Agricultural Business,Tu,14:00:00,15:50:00,False,True,False,False,False
+000030,03,17,P,2252,ABUS,Agricultural Business,Tu,16:00:00,17:50:00,False,True,False,False,False
+000077,01,37,P,2252,ACCT,Accounting,MoWe,10:00:00,11:15:00,True,False,True,False,False
+000077,02,37,P,2252,ACCT,Accounting,MoWe,11:30:00,12:45:00,True,False,True,False,False
+000077,03,36,P,2252,ACCT,Accounting,MoWe,13:30:00,14:45:00,True,False,True,False,False
+000077,04,43,P,2252,ACCT,Accounting,TuTh,09:00:00,10:15:00,False,True,False,True,False
+000078,01,46,P,2252,ACCT,Accounting,TuTh,11:00:00,12:15:00,False,True,False,True,False
+000078,02,45,P,2252,ACCT,Accounting,TuTh,14:00:00,15:15:00,False,True,False,True,False
+000078,03,21,P,2252,ACCT,Accounting,MoWe,09:30:00,10:45:00,True,False,True,False,False
+000078,04,40,P,2252,ACCT,Accounting,TuTh,15:30:00,16:45:00,False,True,False,True,False
+000078,06,40,P,2252,ACCT,Accounting,MoWe,11:00:00,12:15:00,True,False,True,False,False
+000082,01,30,P,2252,ACCT,Accounting,TuTh,11:00:00,12:15:00,False,True,False,True,False
+000083,01,33,P,2252,ACCT,Accounting,TuTh,12:30:00,13:45:00,False,True,False,True,False
+021611,01,27,H,2252,ACCT,Accounting,Th,14:00:00,15:15:00,False,False,False,True,False
+000096,01,22,H,2252,ACCT,Accounting,Th,15:30:00,16:45:00,False,False,False,True,False
+000089,01,34,P,2252,ACCT,Accounting,TuTh,09:30:00,10:45:00,False,True,False,True,False
+000102,02,39,P,2252,ACCT,Accounting,TuTh,11:00:00,12:15:00,False,True,False,True,False
+000136,01,46,P,2252,AFAM,African American Studies,MoWe,14:30:00,15:45:00,True,False,True,False,False
+000136,02,40,P,2252,AFAM,African American Studies,TuTh,09:30:00,10:45:00,False,True,False,True,False
+000136,60,22,P,2252,AFAM,African American Studies,MoWe,16:00:00,17:15:00,True,False,True,False,False
+021990,01,40,X,2252,AFAM,African American Studies,TuTh,14:00:00,15:15:00,False,True,False,True,False
+021990,01,40,X,2252,AFAM,African American Studies,TuTh,14:00:00,15:15:00,False,True,False,True,False
+000204,01,14,P,2252,AGED,Agricultural Education,Th,17:00:00,17:50:00,False,False,False,True,False
+000220,01,18,P,2252,AGED,Agricultural Education,Th,11:00:00,13:50:00,False,False,False,True,False
+000220,02,17,P,2252,AGED,Agricultural Education,Th,14:00:00,16:50:00,False,False,False,True,False
+000208,01,32,P,2252,AGED,Agricultural Education,Tu,14:00:00,16:50:00,False,True,False,False,False
+000222,01,25,J,2252,AGED,Agricultural Education,Mo,19:00:00,21:50:00,True,False,False,False,False
+000166,01,52,P,2252,AGET,Agricultural Engr Tech,MoWe,08:00:00,08:50:00,True,False,True,False,False
+000166,02,19,P,2252,AGET,Agricultural Engr Tech,Mo,14:00:00,16:50:00,True,False,False,False,False
+000166,03,14,P,2252,AGET,Agricultural Engr Tech,Tu,14:00:00,16:50:00,False,True,False,False,False
+000166,04,19,P,2252,AGET,Agricultural Engr Tech,We,14:00:00,16:50:00,False,False,True,False,False
+022526,01,17,P,2252,AGET,Agricultural Engr Tech,Tu,17:00:00,17:50:00,False,True,False,False,False
+022526,02,17,P,2252,AGET,Agricultural Engr Tech,Tu,18:00:00,20:50:00,False,True,False,False,False
+000198,01,26,P,2252,AGRI,Agriculture,Tu,14:00:00,14:50:00,False,True,False,False,False
+000190,01,44,P,2252,AGRI,Agriculture,We,17:00:00,19:50:00,False,False,True,False,False
+000190,01,44,P,2252,AGRI,Agriculture,We,17:00:00,19:50:00,False,False,True,False,False
+022636,01,23,P,2252,AGRI,Agriculture,Fr,09:00:00,10:50:00,False,False,False,False,True
+000211,01,55,P,2252,AGRI,Agriculture,TuTh,09:30:00,10:45:00,False,True,False,True,False
+000211,02,40,P,2252,AGRI,Agriculture,TuTh,08:00:00,09:15:00,False,True,False,True,False
+022635,01,16,P,2252,AGRI,Agriculture,TuTh,12:30:00,13:45:00,False,True,False,True,False
+000206,01,42,P,2252,AGRI,Agriculture,TuTh,08:00:00,08:50:00,False,True,False,True,False
+000206,02,24,P,2252,AGRI,Agriculture,Mo,11:00:00,13:50:00,True,False,False,False,False
+000206,03,18,P,2252,AGRI,Agriculture,Mo,14:00:00,16:50:00,True,False,False,False,False
+022587,01,21,P,2252,AGRI,Agriculture,TuTh,08:00:00,09:15:00,False,True,False,True,False
+000229,03,13,P,2252,AGRI,Agriculture,MoWe,09:00:00,10:15:00,True,False,True,False,False
+000229,04,30,P,2252,AGRI,Agriculture,MoWe,11:00:00,12:15:00,True,False,True,False,False
+000223,01,75,P,2252,AGRI,Agriculture,TuTh,12:30:00,13:45:00,False,True,False,True,False
