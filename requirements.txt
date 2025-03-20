@@ -1,1 +1,5 @@
 pydantic
+SQLAlchemy
+python-dotenv
+sqlacodegen
+psycopg2-binary
