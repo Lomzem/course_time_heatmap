@@ -21,7 +21,7 @@ class Meeting(BaseModel):
 
 class Model(BaseModel):
     # index: int
-    # crse_id: str
+    crse_id: str
     # crse_offer_nbr: int
     # strm: str
     session_code: str
