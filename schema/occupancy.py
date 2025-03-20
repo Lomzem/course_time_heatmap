@@ -17,7 +17,7 @@ def get_occupancy_mapping():
 def add_occupancy():
     db_session = get_session()
     df = get_df()
-    df = df[["courseId", "termId", "sectionCode", "days", "enrollment_total"]]
+    df = df[["courseId", "termId", "sectionCode", "days", "enrollment_total", "start_time", "end_time"]]
     df.courseId = df.courseId.astype(int)
     df.sectionCode = df.sectionCode.astype(int)
 
@@ -25,6 +25,11 @@ def add_occupancy():
 
     df.days = df.days.apply(lambda x: [x[i : i + 2] for i in range(0, len(x), 2)])
     df = df.explode("days", ignore_index=True)
+
+    df["sessionCompositeKey"] = (
+        df.courseId.astype(str) + df.termId.astype(str) + df.sectionCode.astype(str)
+    )
+    df["sessionId"] = df.sessionCompositeKey.map(get_session_mapping())
 
     start_time = pd.Timestamp("07:00:00")
     end_time = pd.Timestamp("18:00:00")
@@ -36,11 +41,6 @@ def add_occupancy():
     weekday_map = get_weekday_mapping()
     weekday_map = {k[:2]: v for k, v in weekday_map.items()}
     df["weekdayId"] = df.days.map(weekday_map)
-
-    df["sessionCompositeKey"] = (
-        df.courseId.astype(str) + df.termId.astype(str) + df.sectionCode.astype(str)
-    )
-    df["sessionId"] = df.sessionCompositeKey.map(get_session_mapping())
 
     df["compositeKey"] = (
         df.sessionId.astype(str) + df.time.astype(str) + df.weekdayId.astype(str)
@@ -61,6 +61,7 @@ def add_occupancy():
 
     db_session.add_all(occupancies)
     db_session.commit()
+    db_session.close()
 
 if __name__ == "__main__":
     add_occupancy()

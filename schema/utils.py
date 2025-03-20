@@ -9,7 +9,7 @@ from pandas import json_normalize
 
 
 def get_df():
-    with open("./data2.json") as f:
+    with open("./data.json") as f:
         json_data = json.load(f)["classes"]
 
     df = pd.DataFrame(json_data)

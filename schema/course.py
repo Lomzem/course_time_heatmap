@@ -20,16 +20,19 @@ def add_course():
         Course(id=row.courseId, majorId=row.subjectId) for _, row in df.iterrows()
     ]
 
-    for course in courses:
-        try:
-            session.add(course)
-            session.commit()
-            print(f"Added course {course.id}")
-        except sqlalchemy.exc.IntegrityError:
-            session.rollback()
-            print(f"Duplicate: Skipping Course({course.id})")
-            continue
-
+    session.add_all(courses)
+    session.commit()
+    # for course in courses:
+    #     try:
+    #         session.add(course)
+    #         session.commit()
+    #         print(f"Added course {course.id}")
+    #     except sqlalchemy.exc.IntegrityError:
+    #         session.rollback()
+    #         print(f"Duplicate: Skipping Course({course.id})")
+    #         continue
+    #
+    # session.close()
     session.close()
 
 
