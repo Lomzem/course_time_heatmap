@@ -10,7 +10,12 @@ from sqlalchemy import (
     Time,
 )
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+import enum
 
+
+class instructionModeEnum(enum.Enum):
+    virtual = "virtual"
+    inperson = "inperson"
 
 class Base(DeclarativeBase):
     pass
@@ -89,7 +94,7 @@ class Session(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     courseId: Mapped[Optional[int]] = mapped_column(Integer)
     termId: Mapped[Optional[int]] = mapped_column(Integer)
-    name: Mapped[Optional[str]] = mapped_column(Text)
+    classSection: Mapped[Optional[int]] = mapped_column(Integer)
     instructionMode: Mapped[Optional[str]] = mapped_column(
         Enum("virtual", "inperson", name="instructionMode")
     )

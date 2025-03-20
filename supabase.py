@@ -12,6 +12,7 @@ from sqlalchemy.exc import IntegrityError
 
 import supabase_models as models
 from models import Model
+from supabase_models import instructionModeEnum
 
 
 def add_weekdays(session: sqlalchemy.orm.Session):
@@ -80,15 +81,23 @@ def main():
         data = json.load(f)
 
     courses = []
+
     db_course_ids = [row[0] for row in session.query(models.Course.id).all()]
+
     db_majors = session.query(models.Major).all()
     db_major_names = [major.name for major in db_majors]
     major_map = {major.name: major.id for major in db_majors}
+
+    db_sessions = session.query(models.Session).all()
+    sessions_map = {
+        f"{s.courseId}{s.termId}{s.classSection}": s.id for s in db_sessions
+    }
 
     for course in data["classes"]:
         course = Model(**course)
         courses.append(course)
 
+        # Insert Major
         if course.subject not in db_major_names:
             try:
                 new_major = models.Major(
@@ -103,15 +112,47 @@ def main():
                 logging.info(f"Major(name:{course.subject}) already exists. Skipping.")
                 session.rollback()
 
+        # Insert Course
         if course.crse_id not in db_course_ids:
             try:
-                new_course = models.Course(id=course.crse_id, majorId=major_map[course.subject])
+                new_course = models.Course(
+                    id=course.crse_id, majorId=major_map[course.subject]
+                )
                 session.add(new_course)
                 session.commit()
-                logging.info(f"Added Course(id:{new_course.id}, majorId:{major_map[course.subject]})")
+                logging.info(
+                    f"Added Course(id:{new_course.id}, majorId:{major_map[course.subject]})"
+                )
                 db_course_ids.append(course.crse_id)
             except IntegrityError:
                 logging.info(f"Course(id:{course.crse_id}) already exists. Skipping.")
+                session.rollback()
+
+        # Insert Session
+        if f"{course.crse_id}{course.strm}{course.class_section}" not in sessions_map:
+            instruction_mode = (
+                instructionModeEnum.inperson
+                if course.instruction_mode.lower() == "p"
+                else instructionModeEnum.virtual
+            )
+
+            new_session = models.Session(
+                id=random.randint(1, 2**16 - 1),
+                courseId=course.crse_id,
+                termId=course.strm,
+                classSection=course.class_section,
+                instructionMode=instruction_mode.value,
+            )
+
+            try:
+                session.add(new_session)
+                session.commit()
+                logging.info(
+                    f"Added Session(id:{new_session.id}, courseId:{course.crse_id}, termId:{course.strm}, classSection:{course.class_section}, instructionMode:{instruction_mode.value})"
+                )
+                sessions_map[f"{course.crse_id}{course.strm}{course.class_section}"] = new_session.id
+            except IntegrityError:
+                logging.info(f"Session(id:{new_session.id}) already exists. Skipping.")
                 session.rollback()
 
     session.commit()

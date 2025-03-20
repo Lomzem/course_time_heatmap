@@ -23,10 +23,10 @@ class Model(BaseModel):
     # index: int
     crse_id: str
     # crse_offer_nbr: int
-    # strm: str
+    strm: str
     session_code: str
     # session_descr: str
-    # class_section: str
+    class_section: str
     # location: str
     # location_descr: str
     start_dt: str
