@@ -33,15 +33,18 @@ def add_session():
         for _, row in df.iterrows()
     ]
 
-    for session in sessions:
-        try:
-            db_session.add(session)
-            db_session.commit()
-            print(f"Added session {session.courseId}")
-        except sqlalchemy.exc.IntegrityError:
-            db_session.rollback()
-            print(f"Duplicate: Skipping Session({session.courseId})")
-            continue
+    db_session.add_all(sessions)
+    db_session.commit()
+
+    # for session in sessions:
+    #     try:
+    #         db_session.add(session)
+    #         db_session.commit()
+    #         print(f"Added session {session.courseId}")
+    #     except sqlalchemy.exc.IntegrityError:
+    #         db_session.rollback()
+    #         print(f"Duplicate: Skipping Session({session.courseId})")
+    #         continue
 
     # for session in sessions:
     #     try:
