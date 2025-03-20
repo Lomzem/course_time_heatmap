@@ -9,16 +9,17 @@ class Base(DeclarativeBase):
     pass
 
 
-class Course(Base):
-    __tablename__ = 'Course'
+class Major(Base):
+    __tablename__ = 'Major'
     __table_args__ = (
-        PrimaryKeyConstraint('id', name='Course_pkey'),
+        PrimaryKeyConstraint('id', name='Major_pkey'),
     )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    major: Mapped[Optional[str]] = mapped_column(Text)
+    abbr: Mapped[Optional[str]] = mapped_column(Text)
+    name: Mapped[Optional[str]] = mapped_column(Text)
 
-    Session: Mapped[List['Session']] = relationship('Session', back_populates='Course_')
+    Course: Mapped[List['Course']] = relationship('Course', back_populates='Major_')
 
 
 class Term(Base):
@@ -28,21 +29,9 @@ class Term(Base):
     )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    name: Mapped[Optional[str]] = mapped_column(Text)
+    dscr: Mapped[Optional[str]] = mapped_column(Text)
 
     Session: Mapped[List['Session']] = relationship('Session', back_populates='Term_')
-
-
-class TimeSlot(Base):
-    __tablename__ = 'TimeSlot'
-    __table_args__ = (
-        PrimaryKeyConstraint('id', name='TimeSlot_pkey'),
-    )
-
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    time: Mapped[Optional[datetime.time]] = mapped_column(Time)
-
-    Occupancy: Mapped[List['Occupancy']] = relationship('Occupancy', back_populates='TimeSlot_')
 
 
 class Weekday(Base):
@@ -53,6 +42,7 @@ class Weekday(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[Optional[str]] = mapped_column(Text)
+    abbr: Mapped[Optional[str]] = mapped_column(Text)
 
     Occupancy: Mapped[List['Occupancy']] = relationship('Occupancy', back_populates='Weekday_')
 
@@ -112,6 +102,20 @@ t_pg_stat_statements_info = Table(
 )
 
 
+class Course(Base):
+    __tablename__ = 'Course'
+    __table_args__ = (
+        ForeignKeyConstraint(['majorId'], ['Major.id'], name='Course_majorId_Major_id_fk'),
+        PrimaryKeyConstraint('id', name='Course_pkey')
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    majorId: Mapped[Optional[int]] = mapped_column(Integer)
+
+    Major_: Mapped[Optional['Major']] = relationship('Major', back_populates='Course')
+    Session: Mapped[List['Session']] = relationship('Session', back_populates='Course_')
+
+
 class Session(Base):
     __tablename__ = 'Session'
     __table_args__ = (
@@ -120,10 +124,10 @@ class Session(Base):
         PrimaryKeyConstraint('id', name='Session_pkey')
     )
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
     courseId: Mapped[Optional[int]] = mapped_column(Integer)
     termId: Mapped[Optional[int]] = mapped_column(Integer)
-    classSection: Mapped[Optional[int]] = mapped_column(Integer)
+    sectionCode: Mapped[Optional[int]] = mapped_column(Integer)
     instructionMode: Mapped[Optional[str]] = mapped_column(CHAR(1))
 
     Course_: Mapped[Optional['Course']] = relationship('Course', back_populates='Session')
@@ -135,17 +139,15 @@ class Occupancy(Base):
     __tablename__ = 'Occupancy'
     __table_args__ = (
         ForeignKeyConstraint(['sessionId'], ['Session.id'], name='Occupancy_sessionId_Session_id_fk'),
-        ForeignKeyConstraint(['timeSlotId'], ['TimeSlot.id'], name='Occupancy_timeSlotId_TimeSlot_id_fk'),
         ForeignKeyConstraint(['weekdayId'], ['Weekday.id'], name='Occupancy_weekdayId_Weekday_id_fk'),
         PrimaryKeyConstraint('id', name='Occupancy_pkey')
     )
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
     sessionId: Mapped[Optional[int]] = mapped_column(Integer)
+    time: Mapped[Optional[datetime.time]] = mapped_column(Time)
     weekdayId: Mapped[Optional[int]] = mapped_column(Integer)
-    timeSlotId: Mapped[Optional[int]] = mapped_column(Integer)
-    studentCount: Mapped[Optional[int]] = mapped_column(Integer)
+    enrollmentTotal: Mapped[Optional[int]] = mapped_column(Integer)
 
     Session_: Mapped[Optional['Session']] = relationship('Session', back_populates='Occupancy')
-    TimeSlot_: Mapped[Optional['TimeSlot']] = relationship('TimeSlot', back_populates='Occupancy')
     Weekday_: Mapped[Optional['Weekday']] = relationship('Weekday', back_populates='Occupancy')
