@@ -1,5 +1,8 @@
-pydantic
 SQLAlchemy
+numpy
+pandas
+pandas-stubs
+psycopg2-binary
+pydantic
 python-dotenv
 sqlacodegen
-psycopg2-binary
