@@ -1,4 +1,6 @@
 import sqlalchemy
+from course import get_course_mapping
+from major import get_major_mapping
 from supabase_models import Session
 from utils import get_df, get_session
 
@@ -13,8 +15,12 @@ def get_session_mapping():
 def add_session():
     db_session = get_session()
     df = get_df()
-    df = df[["courseId", "termId", "sectionCode", "instruction_mode"]]
-    df.courseId = df.courseId.astype(int)
+    df = df[["termId", "sectionCode", "instruction_mode", "subject", "catalog_nbr"]]
+
+    df["subjectId"] = df.subject.map(get_major_mapping())
+    df["courseIdCompositeKey"] = df.subjectId.astype(str) + "" + df.catalog_nbr.astype(str)
+    df["courseId"] = df.courseIdCompositeKey.map(get_course_mapping())
+
     df.sectionCode = df.sectionCode.astype(int)
 
     df = df.drop_duplicates()

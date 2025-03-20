@@ -111,6 +111,7 @@ class Course(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     majorId: Mapped[Optional[int]] = mapped_column(Integer)
+    catalogNumber: Mapped[Optional[str]] = mapped_column(Text)
 
     Major_: Mapped[Optional['Major']] = relationship('Major', back_populates='Course')
     Session: Mapped[List['Session']] = relationship('Session', back_populates='Course_')
@@ -124,7 +125,7 @@ class Session(Base):
         PrimaryKeyConstraint('id', name='Session_pkey')
     )
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
     courseId: Mapped[Optional[int]] = mapped_column(Integer)
     termId: Mapped[Optional[int]] = mapped_column(Integer)
     sectionCode: Mapped[Optional[int]] = mapped_column(Integer)
@@ -143,7 +144,7 @@ class Occupancy(Base):
         PrimaryKeyConstraint('id', name='Occupancy_pkey')
     )
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
     sessionId: Mapped[Optional[int]] = mapped_column(Integer)
     time: Mapped[Optional[datetime.time]] = mapped_column(Time)
     weekdayId: Mapped[Optional[int]] = mapped_column(Integer)

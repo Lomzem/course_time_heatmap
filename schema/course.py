@@ -4,20 +4,31 @@ from supabase_models import Course
 from utils import get_df, get_session
 
 
+def get_course_mapping():
+    db_session = get_session()
+    courses = db_session.query(Course).all()
+    db_session.close()
+
+    return {f"{c.majorId}{c.catalogNumber}": c.id for c in courses}
+
+
 def add_course():
     session = get_session()
     df = get_df()
-    df.courseId = df.courseId.astype(int)
-    df = df[["courseId", "subject"]]
+
+    df = df[["subject", "catalog_nbr"]]
     df = df.drop_duplicates()
+
     major_map = get_major_mapping()
     df["subjectId"] = df.subject.map(major_map)
 
-    ids = [r[0] for r in session.query(Course.id).all()]
-    df = df[~df.courseId.isin(ids)]
+    df["compositeKey"] = df.subjectId.astype(str) + "" + df.catalog_nbr.astype(str)
+
+    df = df[~df.compositeKey.isin(get_course_mapping().keys())]
 
     courses = [
-        Course(id=row.courseId, majorId=row.subjectId) for _, row in df.iterrows()
+        Course(majorId=row.subjectId, catalogNumber=row.catalog_nbr)
+        for _, row in df.iterrows()
     ]
 
     session.add_all(courses)

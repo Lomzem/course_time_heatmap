@@ -10,19 +10,19 @@ from pandas import json_normalize
 
 def get_df():
     with open("./data.json") as f:
-        json_data = json.load(f)["classes"]
+        json_data = json.load(f)
 
     df = pd.DataFrame(json_data)
     df = df[
         [
-            "crse_id",
+            "catalog_nbr",
             "class_section",
             "enrollment_total",
             "instruction_mode",
+            "meetings",
             "strm",
             "subject",
             "subject_descr",
-            "meetings",
         ]
     ]
 
@@ -40,7 +40,6 @@ def get_df():
     df.rename(
         inplace=True,
         columns={
-            "crse_id": "courseId",
             "class_section": "sectionCode",
             "strm": "termId",
         },

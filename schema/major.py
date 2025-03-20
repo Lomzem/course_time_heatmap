@@ -19,16 +19,9 @@ def add_major():
     majors = [
         Major(name=row.subject_descr, abbr=row.subject) for _, row in df.iterrows()
     ]
-    for major in majors:
-        try:
-            session.add(major)
-            session.commit()
-            print(f"Added major {major.name}")
-        except sqlalchemy.exc.IntegrityError:
-            session.rollback()
-            print(f"Duplicate: Skipping Major({major.name})")
-            continue
 
+    session.add_all(majors)
+    session.commit()
     session.close()
 
 
