@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-from sqlalchemy import BigInteger, Boolean, Column, DateTime, Double, Enum, ForeignKeyConstraint, Integer, Numeric, PrimaryKeyConstraint, Table, Text, Time
+from sqlalchemy import BigInteger, Boolean, CHAR, Column, DateTime, Double, ForeignKeyConstraint, Integer, Numeric, PrimaryKeyConstraint, Table, Text, Time
 from sqlalchemy.dialects.postgresql import OID
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 import datetime
@@ -9,16 +9,16 @@ class Base(DeclarativeBase):
     pass
 
 
-class Major(Base):
-    __tablename__ = 'Major'
+class Course(Base):
+    __tablename__ = 'Course'
     __table_args__ = (
-        PrimaryKeyConstraint('id', name='Major_pkey'),
+        PrimaryKeyConstraint('id', name='Course_pkey'),
     )
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
-    name: Mapped[Optional[str]] = mapped_column(Text)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    major: Mapped[Optional[str]] = mapped_column(Text)
 
-    Course: Mapped[List['Course']] = relationship('Course', back_populates='Major_')
+    Session: Mapped[List['Session']] = relationship('Session', back_populates='Course_')
 
 
 class Term(Base):
@@ -112,20 +112,6 @@ t_pg_stat_statements_info = Table(
 )
 
 
-class Course(Base):
-    __tablename__ = 'Course'
-    __table_args__ = (
-        ForeignKeyConstraint(['majorId'], ['Major.id'], name='Course_majorId_Major_id_fk'),
-        PrimaryKeyConstraint('id', name='Course_pkey')
-    )
-
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    majorId: Mapped[Optional[int]] = mapped_column(Integer)
-
-    Major_: Mapped[Optional['Major']] = relationship('Major', back_populates='Course')
-    Session: Mapped[List['Session']] = relationship('Session', back_populates='Course_')
-
-
 class Session(Base):
     __tablename__ = 'Session'
     __table_args__ = (
@@ -138,7 +124,7 @@ class Session(Base):
     courseId: Mapped[Optional[int]] = mapped_column(Integer)
     termId: Mapped[Optional[int]] = mapped_column(Integer)
     classSection: Mapped[Optional[int]] = mapped_column(Integer)
-    instructionMode: Mapped[Optional[str]] = mapped_column(Enum('virtual', 'inperson', name='instructionMode'))
+    instructionMode: Mapped[Optional[str]] = mapped_column(CHAR(1))
 
     Course_: Mapped[Optional['Course']] = relationship('Course', back_populates='Session')
     Term_: Mapped[Optional['Term']] = relationship('Term', back_populates='Session')
