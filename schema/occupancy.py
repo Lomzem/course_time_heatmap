@@ -14,10 +14,31 @@ def get_occupancy_mapping():
     return {f"{o.sessionId}{o.time}{o.weekdayId}": o.id for o in occupancies}
 
 
+def group_explode_times(group):
+    # Assume all rows in group have the same start and end times
+    sample = group.iloc[0]
+    start = pd.Timestamp(str(sample["start_time"]))
+    end = pd.Timestamp(str(sample["end_time"]))
+    times = pd.date_range(start, end, freq="1min").time
+    group["time"] = [times] * len(group)
+    group = group.explode("time", ignore_index=True)
+    return group
+
+
 def add_occupancy():
     db_session = get_session()
     df = get_df()
-    df = df[["courseId", "termId", "sectionCode", "days", "enrollment_total", "start_time", "end_time"]]
+    df = df[
+        [
+            "courseId",
+            "termId",
+            "sectionCode",
+            "days",
+            "enrollment_total",
+            "start_time",
+            "end_time",
+        ]
+    ]
     df.courseId = df.courseId.astype(int)
     df.sectionCode = df.sectionCode.astype(int)
 
@@ -31,12 +52,18 @@ def add_occupancy():
     )
     df["sessionId"] = df.sessionCompositeKey.map(get_session_mapping())
 
-    start_time = pd.Timestamp("07:00:00")
-    end_time = pd.Timestamp("18:00:00")
-    minute_index = pd.date_range(start_time, end_time, freq="5min").time
-    df["time"] = [minute_index] * len(df)
+    # df["start_time_str"] = df.start_time.strftime("%H:%M:%S")
+    # df["end_time_str"] = df.end_time.strftime("%H:%M:%S")
+    df = df.groupby("sessionId", group_keys=False).apply(group_explode_times)
+    # test_df = df[["sessionId", "time", "start_time", "end_time", "enrollment_total"]]
+    # print(test_df[test_df.sessionId == 1])
+    # print(test_df[test_df.sessionId == 2])
 
-    df = df.explode("time", ignore_index=True)
+    # start_time = pd.Timestamp("07:00:00")
+    # end_time = pd.Timestamp("18:00:00")
+    # minute_index = pd.date_range(start_time, end_time, freq="5min").time
+    # df["time"] = [minute_index] * len(df)
+    # df = df.explode("time", ignore_index=True)
 
     weekday_map = get_weekday_mapping()
     weekday_map = {k[:2]: v for k, v in weekday_map.items()}
@@ -62,6 +89,7 @@ def add_occupancy():
     db_session.add_all(occupancies)
     db_session.commit()
     db_session.close()
+
 
 if __name__ == "__main__":
     add_occupancy()
